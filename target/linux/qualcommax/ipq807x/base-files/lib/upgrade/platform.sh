@@ -229,6 +229,8 @@ platform_do_upgrade() {
 		nand_do_upgrade "$1"
 		;;
 	prpl,haze|\
+        qnap,301w|\
+        spectrum,sax1v1k)
 	qnap,301w)
 		CI_KERNPART="0:HLOS"
 		CI_ROOTPART="rootfs"
@@ -253,6 +255,12 @@ platform_do_upgrade() {
 		CI_ROOT_UBIPART="rootfs"
 		nand_do_upgrade "$1"
 		;;
+        spectrum,sax1v1k)
+ 		CI_KERNPART="0:HLOS"
+ 		CI_ROOTPART="rootfs"
+ 		CI_DATAPART="rootfs_data"
+ 		emmc_do_upgrade "$1"
+                ;;
 	redmi,ax6-stock|\
 	xiaomi,ax3600-stock)
 		part_num="$(fw_printenv -n flag_boot_rootfs)"
