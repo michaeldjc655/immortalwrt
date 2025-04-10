@@ -229,9 +229,7 @@ platform_do_upgrade() {
 		nand_do_upgrade "$1"
 		;;
 	prpl,haze|\
-        qnap,301w|\
-        spectrum,sax1v1k)
-	qnap,301w)
+      	qnap,301w)
 		CI_KERNPART="0:HLOS"
 		CI_ROOTPART="rootfs"
 		emmc_do_upgrade "$1"
